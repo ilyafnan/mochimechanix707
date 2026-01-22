@@ -1,0 +1,406 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+body { 
+    background: #000; 
+    color: #fff; 
+    overflow-x: hidden; 
+}
+
+/* NAVBAR ASAL */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 60px; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.logo img { 
+    height: 35px; 
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+}
+
+.nav-links a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 13px; 
+    letter-spacing: 2px; 
+}
+
+/* EXTERIOR HERO SECTION */
+.ext-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 8%; /* Jarak dari tepi kiri macam gambar inspo */
+}
+
+.ext-hero-bg {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1;
+}
+
+.ext-hero-bg img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+.ext-overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Gradient gelap di kiri supaya tulisan nampak jelas */
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+    z-index: 2;
+}
+
+.ext-content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+}
+
+.ext-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: #fff;
+    text-transform: uppercase; /* PAKSA CAPS LOCK */
+    margin: 0;
+    max-width: 800px; /* Supaya tulisan pecah cantik */
+    line-height: 1.1;
+}
+
+.ext-line {
+    width: 120px;
+    height: 4px;
+    background: #004225; /* Warna hijau signature awak */
+    margin: 30px 0;
+}
+
+.ext-subtitle {
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase; /* PAKSA CAPS LOCK */
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+}
+
+/* --- CONTAINER SCROLL --- */
+.ext-scroll-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+/* --- BACKGROUND FIXED (STAY) --- */
+.fixed-bg {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.fixed-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3); /* Gelap sedikit supaya teks Glassmorphism nampak jelas */
+}
+
+/* --- CONTENT LAYER --- */
+.scroll-content {
+    position: relative;
+    z-index: 10;
+    margin-top: -100vh; /* Tarik kandungan naik ke atas background fixed */
+}
+
+.scroll-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh; /* Setiap bahagian ambil 1 skrin penuh */
+    padding: 0 10%;
+}
+
+.scroll-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* --- GAYA GAMBAR STACK --- */
+.image-stack {
+    position: relative;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-large {
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.img-small {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    width: 60%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 8px solid rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+.scroll-row.reverse .img-small {
+    left: -20px;
+    right: auto;
+}
+
+/* --- KOTAK TEKS GLASSMORPHISM --- */
+.text-box-wrapper {
+    width: 42%;
+}
+
+.aesthetic-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px); /* Efek kabur yang sangat premium */
+    padding: 60px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+}
+
+.aesthetic-box h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.aesthetic-box h4 {
+    color: #004225; /* Hijau signature */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.aesthetic-box p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- SECTION HIGHLIGHT --- */
+.scroll-highlight-section {
+    height: 200vh; /* Ruang scroll yang panjang untuk kesan highlight */
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15%;
+}
+
+.highlight-container {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+/* --- LOGIK REVEAL TEXT (HIGHLIGHT) --- */
+.reveal-text {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.15); /* Warna asal yang malap */
+    background-image: linear-gradient(to right, #fff, #fff);
+    background-repeat: no-repeat;
+    background-size: 0% 100%; /* Bermula dengan 0% highlight */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Animasi mengikut scroll */
+    animation: reveal-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: entry 100% exit 0%;
+}
+
+@keyframes reveal-scroll {
+    to {
+        background-size: 100% 100%; /* Menjadi 100% (putih penuh) bila scroll */
+    }
+}
+
+/* --- AUTHOR STYLE --- */
+.quote-author {
+    margin-top: 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+}
+
+.quote-author .line {
+    width: 50px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- FOOTER SEBIJIK MACAM REKABENTUK --- */
+.main-footer {
+    background: #d1d5d8; /* Kelabu cerah aesthetic */
+    padding: 60px 0 20px;
+    width: 100%;
+    border-top: 5px solid #004225; /* Garis Hijau Signature */
+    color: #000;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+}
+
+.footer-section { flex: 1; }
+
+/* --- CSS UNTUK LOGO FOOTER --- */
+.car-logo { 
+    height: 40px; /* Awak boleh adjust saiz ikut kesesuaian */
+    width: auto;
+    filter: none !important; /* BUANG semua kesan warna hitam/gelap */
+    transition: transform 0.3s ease;
+}
+
+.car-logo:hover {
+    transform: scale(1.05); /* Sedikit efek bila hover bagi nampak hidup */
+}
+
+/* BAHAGIAN TENGAH (BRITISH RACING GREEN) */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #444; 
+    margin-bottom: 2px;
+}
+
+.brand-main {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #004225; /* WARNA BRITISH RACING GREEN */
+    margin-bottom: 25px;
+}
+
+.footer-nav { display: flex; gap: 30px; }
+.footer-nav a {
+    text-decoration: none;
+    color: #004225; /* Font Hijau */
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+/* SOSIAL MEDIA KANAN */
+.footer-right { display: flex; justify-content: flex-end; }
+.social-box { display: flex; flex-direction: column; gap: 10px; }
+
+.social-btn {
+    text-decoration: none;
+    color: #004225; /* Ikon & Teks warna Hijau */
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 25px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+
+/* WARNA TULISAN & IKON SIGNATURE */
+.brand-main, .footer-nav a, .social-btn, .social-btn i {
+    color: #004225 !important; /* British Racing Green */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    opacity: 0.7;
+    transform: translateX(-5px); /* Sedikit efek pergerakan */
+}
+
+/* Pastikan logo tidak gelap */
+.car-logo {
+    height: 40px;
+    filter: none !important;
+}

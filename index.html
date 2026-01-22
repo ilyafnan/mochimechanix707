@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aston Martin Concept - DBX707</title>
+    <link rel="stylesheet" href="index.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/looogo.png" alt="Aston Martin">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">INTRO</a></li>
+                <li><a href="interior.html">INTERIOR</a></li>
+                <li><a href="engineering.html">ENGINEERING</a></li>
+                <li><a href="exterior.html">EXTERIOR</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ <section class="hero-video-section">
+    <video class="hero-video" playsinline loop autoplay muted>
+        <source src="dbx11.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-video-text">
+        <div class="text-wrapper">
+            <h3>THE ULTIMATE SUV'S</h3>
+            <h1>DBX 707</h1>
+            <div class="brand-line">
+                <span>ASTON MARTIN</span>
+            </div>
+        </div>
+    </div>
+</section>
+	
+<section class="supercar-image-text-section">
+    <div class="text-container">
+        <h2>THE SUPERCAR OF SUV'S</h2>
+        <p>
+            The presence of an Aston Martin, with the racing-grade reactions of a supercar, 
+            in the height and space of an SUV. Peerless luxury credentials imbued with 
+            racetrack DNA. Lined with a technically advanced interior. All under the 
+            panoramic glass roof. Powered by a 4.0-litre twin-turbo V8. An epic 900Nm 
+            of relentless torque. A top speed of 193mph. Elegance in every detail. 
+            Uncompromising in every sense.
+        </p>
+    </div>
+</section>
+
+	<div class="trio-container">
+    
+    <section class="feature-card-wrapper">
+        <div class="feature-inner">
+            <img src="img/int2.png" alt="Interior" class="feature-img">
+            <div class="overlay-content right-bottom">
+                <div class="text-group">
+                    <h2>INTERIOR</h2>
+                    <p>Step into a new height of luxury. Obsessively recrafted and programmed for the future...</p>
+                    <a href="interior.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-card-wrapper">
+        <div class="feature-inner">
+            <img src="img/muka2.png" alt="Engineering" class="feature-img">
+            <div class="overlay-content left-bottom">
+                <div class="text-group">
+                    <h2>ENGINEERING</h2>
+                    <p>A power-driven epic. The luxury of 900Nm. A top speed of 193mph...</p>
+                    <a href="engineering.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-card-wrapper">
+        <div class="feature-inner">
+            <img src="img/ext2.png" alt="Exterior" class="feature-img">
+            <div class="overlay-content right-bottom">
+                <div class="text-group">
+                    <h2>EXTERIOR</h2>
+                    <p>How advanced aerodynamics and airflow management create the ultimate silhouette...</p>
+                    <a href="exterior.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+	
+	
+<section class="aston-specs-clean">
+    <div class="specs-wrapper-clean">
+        
+        <div class="spec-box">
+            <span class="label">TOP SPEED MPH</span>
+            <div class="number-container">
+                <h2 class="counting-number" data-target="193">0</h2>
+            </div>
+        </div>
+
+        <div class="spec-box">
+            <span class="label">0-62 MPH S</span>
+            <div class="number-container">
+                <h2 class="counting-number" data-target="3.3">0</h2>
+            </div>
+        </div>
+
+        <div class="spec-box">
+            <span class="label">MAXIMUM POWER BHP</span>
+            <div class="number-container">
+                <h2 class="counting-number" data-target="707">0</h2>
+            </div>
+        </div>
+
+        <div class="spec-box">
+            <span class="label">MAXIMUM TORQUE NM</span>
+            <div class="number-container">
+                <h2 class="counting-number" data-target="900">0</h2>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Background hitam pekat ikut video */
+    .aston-specs-clean {
+        background-color: #000; 
+        color: #ffffff;
+        padding: 100px 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .specs-wrapper-clean {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 60px; 
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .spec-box {
+        text-align: left;
+        min-width: 200px;
+        flex: 1;
+    }
+
+    /* Garis halus kelabu di atas label ikut gambar */
+    .label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #888;
+        border-top: 1px solid #333; 
+        padding-top: 15px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    /* Saiz nombor besar dan tebal */
+    .counting-number {
+        font-size: 80px; 
+        font-weight: bold;
+        margin: 0;
+        letter-spacing: -2px;
+    }
+
+    /* Untuk skrin phone supaya tak lari */
+    @media (max-width: 768px) {
+        .specs-wrapper-clean { gap: 40px; }
+        .counting-number { font-size: 60px; }
+        .spec-box { text-align: center; }
+        .label { border-top: none; }
+    }
+</style>
+
+<script>
+    // Fungsi animasi nombor berpusing
+    function startCountingNumbers() {
+        const counters = document.querySelectorAll('.counting-number');
+        
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // Animasi selama 2 saat
+            let startTimestamp = null;
+
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                let currentVal = progress * target;
+                
+                // Jika nombor perpuluhan (3.3)
+                if (target % 1 !== 0) {
+                    counter.innerText = currentVal.toFixed(1);
+                } else {
+                    counter.innerText = Math.floor(currentVal);
+                }
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    counter.innerText = target; 
+                }
+            };
+            window.requestAnimationFrame(step);
+        });
+    }
+
+    // Guna Intersection Observer supaya animasi bermula bila user scroll sampai sini
+    const specsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCountingNumbers();
+                specsObserver.unobserve(entry.target); 
+            }
+        });
+    }, { threshold: 0.6 });
+
+    // Mula memerhati section specs
+    const targetSection = document.querySelector('.aston-specs-clean');
+    if(targetSection) {
+        specsObserver.observe(targetSection);
+    }
+</script>
+
+	
+
+<section class="category-nav-overlay">
+    <img src="img/Pvideo.png" alt="Background" class="bg-image">
+
+    <div class="category-container">
+        
+        <a href="interior.html" class="category-item">
+            <div class="image-wrapper">
+                <img src="img/interioor.png" alt="Interior"> </div>
+            <div class="text-content">
+                <h3>INTERIOR</h3>
+                
+<p>Exploring the perfect balance between raw power and sophisticated comfort.</p>
+            </div>
+        </a>
+
+        <a href="engineering.html" class="category-item">
+            <div class="image-wrapper">
+                <img src="img/engineeering.png" alt="Engineering"> </div>
+            <div class="text-content">
+                <h3>ENGINEERING</h3>
+                <p>How precision aerodynamics and lightweight materials redefine high-speed stability.</p>
+            </div>
+        </a>
+
+        <a href="exterior.html" class="category-item">
+            <div class="image-wrapper">
+                <img src="img/exterior.png" alt="Exterior"> </div>
+            <div class="text-content">
+                <h3>EXTERIOR</h3>
+                <p>How advanced aerodynamics and airflow management create the ultimate silhouette.</p>
+            </div>
+        </a>
+    </div>
+</section>
+	
+	
+
+<script>
+    const video = document.getElementById('myAutoVideo');
+
+    // Paksa video main sebaik sahaja website dibuka
+    window.addEventListener('load', () => {
+        video.play().catch(error => {
+            console.log("Autoplay dengan suara disekat oleh pelayar. Sila klik di mana-mana untuk dengar suara.");
+        });
+    });
+
+    // Pastikan video tidak berhenti walaupun scroll
+    video.addEventListener('pause', () => {
+        video.play();
+    });
+	
+	
+</script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Pilih semua elemen yang nak di-animasi
+        const targets = document.querySelectorAll('.feature-card-wrapper');
+
+        // 2. Buat 'Pemerhati' (Observer) untuk tengok bila elemen masuk skrin
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Jika elemen masuk dalam viewport (skrin)
+                if (entry.isIntersecting) {
+                    // Tambah class '.is-visible' untuk trigger animasi CSS tadi
+                    entry.target.classList.add('is-visible');
+                    // Berhenti memerhati elemen ni sebab dia dah muncul
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2 // Animasi bermula bila 20% gambar dah masuk skrin
+        });
+
+        // 3. Suruh pemerhati mula bekerja pada setiap target
+        targets.forEach(t => observer.observe(t));
+    });
+</script>
+</body>
+</html>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-section footer-left">
+            <img src="img/looogo.png" alt="Aston Martin" class="car-logo">
+        </div>
+
+        <div class="footer-section footer-center">
+            <div class="brand-titles">
+                <p class="brand-sub">ASTON MARTIN</p>
+                <h2 class="brand-main" style="color: #004225; font-weight: 900;">DBX 707</h2>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">INTRO</a>
+                <a href="interior.html">INTERIOR</a>
+                <a href="engineering.html">ENGINEERING</a>
+                <a href="exterior.html">EXTERIOR</a>
+            </nav>
+        </div>
+
+        <div class="footer-section footer-right">
+            <div class="social-box">
+                <a href="https://www.instagram.com/astonmartin" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i> @astonmartin
+                </a>
+                <a href="https://www.tiktok.com/@astonmartin" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-tiktok"></i> @astonmartin
+                </a>
+                <a href="https://twitter.com/astonmartin" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-x-twitter"></i> @astonmartin
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2026 ASTON MARTIN LAGONDA. ALL RIGHTS RESERVED.</p>
+    </div>
+</footer>

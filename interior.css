@@ -1,0 +1,317 @@
+                 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body { background: #000; color: #fff; overflow-x: hidden; }
+
+/* NAVBAR */
+.navbar {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+.logo img { height: 35px; } /* Saiz logo cantik */
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-shadow: 0 2px 10px #000; }
+.nav-links a:hover { color: #004225; }
+
+/* HERO */
+.hero-interior-full { position: relative; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; }
+.video-bg-wrapper, .video-element { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.overlay-gradient { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
+.hero-title-container { position: relative; z-index: 10; text-align: center; }
+.hero-title-container h1 { font-size: 100px; font-weight: 900; text-shadow: 0 10px 30px #000; }
+.hero-title-container h2 { font-size: 40px; letter-spacing: 15px; text-shadow: 0 5px 15px #000; }
+
+/* GRID */
+.interior-section { padding: 80px 40px; }
+.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: auto; }
+.card { position: relative; cursor: pointer; overflow: hidden; height: 300px; }
+.card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.card:hover img { transform: scale(1.1); }
+.card-content { position: absolute; bottom: 20px; left: 20px; }
+.video-middle { grid-column: span 3; height: 400px; margin: 20px 0; }
+.video-middle video { width: 100%; height: 100%; object-fit: cover; }
+
+/* SIDE PANEL LOGIC */
+.panel-state { display: none; }
+.side-panel { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: #fff; z-index: 2000; transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1); display: flex; color: #000; }
+#trigger-1:checked ~ .p1, #trigger-2:checked ~ .p2, #trigger-3:checked ~ .p3, #trigger-4:checked ~ .p4, #trigger-5:checked ~ .p5, #trigger-6:checked ~ .p6 { right: 0; }
+
+.panel-body { display: flex; width: 100%; }
+.text-section { flex: 1; padding: 80px; display: flex; flex-direction: column; justify-content: center; background: #f9f9f7; }
+.image-section { flex: 1.5; }
+.image-section img { width: 100%; height: 100%; object-fit: cover; }
+.close-btn { position: absolute; top: 30px; left: 30px; font-size: 40px; cursor: pointer; z-index: 2001; }
+
+.photo-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Sembunyikan radio buttons */
+input[name="astonslide"] { display: none; }
+
+/* LOGIK GERAKKAN SLIDER */
+#rs1:checked ~ .pure-css-slider { transform: translateX(0%); }
+#rs2:checked ~ .pure-css-slider { transform: translateX(-100%); }
+#rs3:checked ~ .pure-css-slider { transform: translateX(-200%); }
+#rs4:checked ~ .pure-css-slider { transform: translateX(-300%); }
+#rs5:checked ~ .pure-css-slider { transform: translateX(-400%); }
+
+/* LOGIK TUKAR BUTANG (NEXT) */
+.next, .prev {
+    display: none; /* Sembunyi semua butang dulu */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 100;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.next { right: 40px; }
+.prev { left: 40px; }
+
+/* Tunjukkan butang yang betul mengikut gambar sekarang */
+#rs1:checked ~ .slider-nav-logic .n1, #rs1:checked ~ .slider-nav-logic .p1 { display: flex; }
+#rs2:checked ~ .slider-nav-logic .n2, #rs2:checked ~ .slider-nav-logic .p2 { display: flex; }
+#rs3:checked ~ .slider-nav-logic .n3, #rs3:checked ~ .slider-nav-logic .p3 { display: flex; }
+#rs4:checked ~ .slider-nav-logic .n4, #rs4:checked ~ .slider-nav-logic .p4 { display: flex; }
+#rs5:checked ~ .slider-nav-logic .n5, #rs5:checked ~ .slider-nav-logic .p5 { display: flex; }
+
+/* --- STYLE GAMBAR & OVERLAY (KEKAL) --- */
+.pure-css-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.snap-slide { min-width: 100%; height: 100%; }
+.snap-slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+
+.slider-static-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 50;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px;
+    pointer-events: none;
+}
+.slider-brand-logo { height: 35px; margin-bottom: 15px; }
+.overlay-inner h2 { font-size: 36px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+
+.action-section {
+    position: relative;
+    width: 100%;
+    min-height: 110vh; /* Tambah sikit tinggi untuk butang bawah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background: #000;
+}
+
+.action-bg-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.action-bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.25) contrast(1.2); /* Kesan gelap samar */
+}
+
+.action-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1000px; /* Lebar video standard */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Tajuk & butang rapat kiri ikut rujukan */
+}
+
+.action-title {
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Kotak Video Berbentuk Rounded */
+.video-frame-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 25px; /* Bucu bulat premium */
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 30px; /* Jarak antara video dan butang */
+}
+
+.video-frame-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Container Butang di Bawah Video */
+.action-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Letak butang di bawah kiri video */
+}
+
+.btn-action-external {
+    display: inline-block;
+    padding: 15px 35px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    backdrop-filter: blur(15px); /* Kesan kaca (glassmorphism) */
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+}
+
+.btn-action-external:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-5px); /* Butang naik sikit bila hover */
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+
+
+
+
+
+/* --- FOOTER SEBIJIK MACAM REKABENTUK --- */
+.main-footer {
+    background: #d1d5d8; /* Kelabu cerah aesthetic */
+    padding: 60px 0 20px;
+    width: 100%;
+    border-top: 5px solid #004225; /* Garis Hijau Signature */
+    color: #000;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+}
+
+.footer-section { flex: 1; }
+
+/* --- CSS UNTUK LOGO FOOTER --- */
+.car-logo { 
+    height: 40px; /* Awak boleh adjust saiz ikut kesesuaian */
+    width: auto;
+    filter: none !important; /* BUANG semua kesan warna hitam/gelap */
+    transition: transform 0.3s ease;
+}
+
+.car-logo:hover {
+    transform: scale(1.05); /* Sedikit efek bila hover bagi nampak hidup */
+}
+
+/* BAHAGIAN TENGAH (BRITISH RACING GREEN) */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #444; 
+    margin-bottom: 2px;
+}
+
+.brand-main {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #004225; /* WARNA BRITISH RACING GREEN */
+    margin-bottom: 25px;
+}
+
+.footer-nav { display: flex; gap: 30px; }
+.footer-nav a {
+    text-decoration: none;
+    color: #004225; /* Font Hijau */
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+/* SOSIAL MEDIA KANAN */
+.footer-right { display: flex; justify-content: flex-end; }
+.social-box { display: flex; flex-direction: column; gap: 10px; }
+
+.social-btn {
+    text-decoration: none;
+    color: #004225; /* Ikon & Teks warna Hijau */
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 25px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+
+/* WARNA TULISAN & IKON SIGNATURE */
+.brand-main, .footer-nav a, .social-btn, .social-btn i {
+    color: #004225 !important; /* British Racing Green */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    opacity: 0.7;
+    transform: translateX(-5px); /* Sedikit efek pergerakan */
+}
+
+/* Pastikan logo tidak gelap */
+.car-logo {
+    height: 40px;
+    filter: none !important;
+}
